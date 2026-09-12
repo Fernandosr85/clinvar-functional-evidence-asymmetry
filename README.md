@@ -105,9 +105,8 @@ and change it to:
 BASE = Path("../labels")
 ```
 
-Run that block with Shift+Enter. It should print `450 labelled rows, from 5 samples`. It then
-draws the same fifty rows every time, from a fixed seed — the draw was checked against the
-published `labels/blind_comparison.csv` and reproduces it in the same order.
+Run that block with Shift+Enter. It should print `450 labelled rows, from 5 samples`. A fixed seed
+means it draws the same fifty rows every time, in the same order.
 
 **5. Read the fifty submissions.** Run the next two code blocks. They render the fifty
 submissions as numbered cards, twenty-five at a time, with assay vocabulary highlighted in red,
@@ -156,6 +155,13 @@ side by side to `blind_comparison.csv`.
 
 If you are willing to share the outcome, open an issue or a pull request with your fifty
 characters. A second trained reading is the thing this work is missing.
+
+**These seven steps were run before release**, against a fresh clone on Python 3.8.5 and pandas
+1.1.3, with `MY_READ` left at the author's reading. The notebook reproduced the published figures
+exactly — 450 rows pooled, the same fifty drawn in the same order, 47 rows where both readers
+committed, 40.4% agreement, κ = 0.104 — and the `blind_comparison.csv` it wrote matched
+`labels/blind_comparison.csv` line for line, differing only in line endings, which pandas writes
+as CRLF on Windows. So the baseline your reading is scored against is the published one.
 
 ### If you would rather read away from a screen full of code
 
