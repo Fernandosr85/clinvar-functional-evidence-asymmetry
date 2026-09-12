@@ -1,0 +1,25 @@
+ok,claim,want_claim,denial,want_denial,case
+True,False,False,False,False,"literature absence is about case reports, not function - v1 read it as a denial"
+True,False,False,False,False,the Invitae template that produced 87.7% of v1's denials
+True,True,True,False,False,the canonical Invitae claim
+True,True,True,False,False,GeneDx claim
+True,True,True,False,False,model-organism assay
+True,True,True,False,False,enzymatic assay
+True,True,True,False,False,RNA assay - missed entirely by v1
+True,True,True,False,False,bare ACMG code - 155 submissions do only this
+True,False,False,True,True,the most common denial v1 misread as a claim
+True,False,False,True,True,VCGS code 1007
+True,False,False,True,True,GeneDx denial
+True,False,False,True,True,Ambry denial
+True,False,False,True,True,the denial the optional 'functionally' was meant to catch
+True,False,False,False,False,"prediction, not measurement"
+True,False,False,False,False,"vendor model, not an assay"
+True,False,False,False,False,predictor score only
+True,False,False,False,False,'effect on protein function' preceded by in-silico framing
+True,False,False,False,False,vendor model citing in-vitro data - not an assay on this variant
+True,True,True,False,False,verb 'suggest' was missing
+True,True,True,False,False,'evaluating' was missing
+True,True,True,False,False,verb 'found'
+True,True,True,False,False,hyphenated In-vivo
+True,True,True,False,False,verb 'provide'
+True,True,True,False,False,genuine claim that also cites a predictor

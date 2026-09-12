@@ -1,0 +1,25 @@
+{
+  "version": 5,
+  "supersedes": "v1 panel ratio of 5.9 denials per claim - wrong, see header",
+  "submissions": 32569,
+  "variants": 17368,
+  "claims": 1216,
+  "denials": 1512,
+  "both": 18,
+  "literature_absence_excluded": 5922,
+  "submissions_without_text": 11327,
+  "laboratories": 278,
+  "laboratories_over_threshold": 46,
+  "laboratories_denying_more_than_claiming": 5,
+  "laboratories_vocal": 26,
+  "laboratories_never_denying": 19,
+  "laboratories_never_denying_denominator": "laboratories_vocal",
+  "median_lab_denials_per_claim": 0.0,
+  "top_submitter_share_of_denials": 0.6177,
+  "accuracy_note": "quote the held-out figures; anything labelled fit was measured on the rows that produced the patterns",
+  "not_measured": [
+    "whether any claim is true - that needs the cited papers read",
+    "whether an assay was performed on this variant or a neighbour"
+  ],
+  "_source": "the summary object the frozen run printed in section 9 of notebooks/panel_classification.ipynb. The notebook filters its own 'accuracy' key out of that print; those figures are published separately as accuracy_by_sample.csv."
+}

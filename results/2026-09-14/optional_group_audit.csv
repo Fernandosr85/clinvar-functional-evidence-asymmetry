@@ -1,0 +1,3 @@
+pattern,optional_group,quantifier
+DENIAL,RNA[/ ]?,?
+CLAIM,experimental |functional,?

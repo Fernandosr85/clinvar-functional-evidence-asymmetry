@@ -1,0 +1,26 @@
+# Notebook run artefacts. The frozen snapshot in results/ and the label files
+# in labels/ ARE tracked; everything a run regenerates is not.
+panel_claims_v2/
+audit_samples/
+.ipynb_checkpoints/
+
+# Bulk download. 388 MB of ClinVar; the panel notebook re-fetches it on a clean
+# run, and a later copy would not be the 14 September 2026 snapshot anyway.
+submission_summary.txt.gz
+submission_summary.txt.gz.part
+variant_summary.txt.gz
+
+# Compressed artefacts, except anything frozen under results/
+*.csv.gz
+!results/**/*.csv.gz
+
+# The blind read writes these into the working directory. Anchored to the root
+# so that labels/blind_comparison.csv — the published copy — stays tracked.
+/blind_key.csv
+/blind_read.csv
+/blind_comparison.csv
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/

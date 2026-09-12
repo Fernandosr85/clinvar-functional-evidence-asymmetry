@@ -1,0 +1,171 @@
+{
+  "snapshot": "2026-09-14",
+  "retrieval_date_stated_in_report": "2026-09-14",
+  "notebook_run_timestamp_utc": "2026-09-11T02:38:40Z",
+  "date_discrepancy": "report.md and this folder name say the ClinVar snapshot was retrieved on 14 September 2026. The papermill block embedded in notebooks/panel_classification.ipynb records the executed run as 2026-09-11T02:38:40Z to 02:41:35Z, and that run is the one every table here was read out of. The machine-attested date is the 11th. Recorded rather than reconciled, because the notebook is committed as executed and report.md is committed unchanged.",
+  "produced_by": "notebooks/panel_classification.ipynb",
+  "derivation": "No table here was recomputed. Each was read out of the stored cell output of the executed notebook, so the snapshot is the snapshot report.md describes. Re-running the notebook downloads a current ClinVar release and will not reproduce these counts.",
+  "sources": [
+    {
+      "name": "ClinVar submission_summary.txt.gz",
+      "endpoint": "https://ftp.ncbi.nlm.nih.gov/pub/clinvar/tab_delimited/submission_summary.txt.gz",
+      "bytes_at_run": 388000000,
+      "rows_scanned": 6432540,
+      "note": "live resource, revised weekly; excluded by .gitignore"
+    },
+    {
+      "name": "adjudicated label samples",
+      "origin": "labels/ in this repository",
+      "note": "450 rows across five samples; produced by a language model adjudicating against a written rubric, no human curator"
+    }
+  ],
+  "panel": [
+    "BRAF",
+    "HRAS",
+    "KRAS",
+    "LZTR1",
+    "MAP2K1",
+    "MAP2K2",
+    "NRAS",
+    "PTPN11",
+    "RAF1",
+    "RIT1",
+    "SHOC2",
+    "SOS1",
+    "SOS2"
+  ],
+  "headline_counts": {
+    "submissions": 32569,
+    "variants": 17368,
+    "claims": 1216,
+    "denials": 1512,
+    "both": 18,
+    "literature_absence_excluded": 5922,
+    "submissions_without_text": 11327,
+    "laboratories": 278,
+    "laboratories_over_threshold": 46,
+    "laboratories_vocal": 26,
+    "laboratories_never_denying": 19,
+    "laboratories_never_denying_denominator": "laboratories_vocal",
+    "median_lab_denials_per_claim": 0.0,
+    "top_submitter_share_of_denials": 0.6177
+  },
+  "inter_rater": {
+    "submissions_read_blind": 50,
+    "both_readers_committed": 47,
+    "observed_agreement": 0.404,
+    "chance_agreement_from_marginals": 0.335,
+    "cohens_kappa": 0.104,
+    "readers": "one automated adjudication, one untrained human (the author). No trained curator has read these labels.",
+    "uncorrected": {
+      "observed_agreement": 0.383,
+      "cohens_kappa": 0.076,
+      "note": "before the single key correction to SCV001424749.1, which moves the result in the classifier's favour"
+    }
+  },
+  "not_measured": [
+    "whether any claim is true - that needs the cited papers read",
+    "whether an assay was performed on this variant or a neighbour"
+  ],
+  "not_included": {
+    "submission_summary.txt.gz": "388 MB of ClinVar. Re-fetchable, but a copy fetched later is a different snapshot.",
+    "classified.csv": "the 32,569-row per-submission table the run wrote. Not retained; figures computed directly from it cannot be verified here.",
+    "by_submitter.csv": "the full 278-row submitter table. Not retained; the 20 rows the notebook printed are published as by_laboratory_top20.csv."
+  },
+  "notebooks": [
+    {
+      "file": "notebooks/panel_classification.ipynb",
+      "bytes": 897007,
+      "sha256": "8e551f64e12b82c268d0f201436bb84b604a85efe72cd7651c35bf5db7a32b90",
+      "note": "produced every table in this snapshot; executed run, papermill 2026-09-11T02:38:40Z to 02:41:35Z, 174.6 s"
+    },
+    {
+      "file": "notebooks/blind_interrater_check.ipynb",
+      "bytes": 94495,
+      "sha256": "2c3066718d6e1f016a0667352700909d232c068fcc363bec4c5ab5667199c1c5",
+      "note": "produced labels/blind_comparison.csv; executed run, papermill 2026-09-11T13:14:43Z to 13:14:48Z, 5.3 s"
+    }
+  ],
+  "inputs": [
+    {
+      "file": "labels/blind_comparison.csv",
+      "bytes": 47202,
+      "sha256": "8dc5b39b8cab8c9ecf98ac8b5ba734734bb4c6aa0adffb270263f7d65880000d",
+      "note": "50 rows drawn from the pooled 450 with seed 20260915, carrying all three readings: the author's blind read, the adjudicator's verdict, and MY_READ (equal to the author's in the published run)."
+    },
+    {
+      "file": "labels/panel_claims_audit_sample130_rev.csv",
+      "bytes": 130206,
+      "sha256": "5f58da74f66b2008c151110a4b53657090e94797452144b0e3424d17c0da4934",
+      "note": "130 rows, drawn on v1 output, seed 20260910. TRAINING: the v2 patterns were written from these rows."
+    },
+    {
+      "file": "labels/panel_claims_v2_heldout_110_rev.csv",
+      "bytes": 131979,
+      "sha256": "acf3c72bcdadcad781039200130f57bd12945219348d79d21cde9b0582a9dc7d",
+      "note": "110 rows, drawn on v2 output, seed 20260910. TRAINING: held out for v2, then four v3 patterns were written from its rows."
+    },
+    {
+      "file": "labels/panel_claims_v3_heldout_90_rev.csv",
+      "bytes": 103498,
+      "sha256": "ba326a1b0ee1a409ba33fcece7957878574998fcf654a013a8e8532eb4c77e41",
+      "note": "90 rows, drawn on v3 output, seed 20260911. EVALUATION: no pattern has been written from any row in it. This is the accuracy to quote."
+    },
+    {
+      "file": "labels/panel_claims_v4_negatives_60.csv",
+      "bytes": 55579,
+      "sha256": "a419a68c64b6778eb8c19b3cf834e70d7638dfa2ae1b19884c7e56fe09d5341e",
+      "note": "60 rows from the negative class, seed 20260912. SPENT: its two misses were reported and fixed in v5."
+    },
+    {
+      "file": "labels/panel_claims_v5_negatives_60.csv",
+      "bytes": 57244,
+      "sha256": "938511000ab65b06012dc041fb1d74501d0d4aa7ee245ee2243f4f01cfb99a16",
+      "note": "60 rows from the negative class, seed 20260914. SPENT: its three misses were reported and fixed in v6."
+    }
+  ],
+  "files": [
+    {
+      "file": "results/2026-09-14/accuracy_by_sample.csv",
+      "bytes": 1068,
+      "sha256": "960337470cae520355513df441e7a790a21f8837bfa1a83794df415c99221b27",
+      "note": "section 5, complete - four scored samples, evaluation and fit alike"
+    },
+    {
+      "file": "results/2026-09-14/adjective_insertion_audit_top12.csv",
+      "bytes": 838,
+      "sha256": "10debfc9417b13cdaf43effe461a55a77efe8e088c5d5aad48f33b3b6737a79c",
+      "note": "section 3, TRUNCATED: the notebook printed head(12) of 14 positions"
+    },
+    {
+      "file": "results/2026-09-14/by_gene.csv",
+      "bytes": 923,
+      "sha256": "4c745b8a1da21efcf054917642f24e605c818beea6bcb7096a1d825f5865fe67",
+      "note": "section 8, complete - all 13 genes"
+    },
+    {
+      "file": "results/2026-09-14/by_laboratory_top20.csv",
+      "bytes": 1603,
+      "sha256": "94ea254297fd3649c84d9171ae8ecf8c26ee14dbbc625d71dd3d9cf1ec35791f",
+      "note": "section 6, TRUNCATED: the 20 rows the notebook printed, of 46 submitters over the 30-submission threshold and 278 in total. The full by_submitter.csv written at run time was not retained."
+    },
+    {
+      "file": "results/2026-09-14/optional_group_audit.csv",
+      "bytes": 85,
+      "sha256": "bf1a2b4806255f8e9c9e251a5c1c3cf824d7dc9686c00d9ead8b7f684a8ad2e0",
+      "note": "section 3, complete - both findings"
+    },
+    {
+      "file": "results/2026-09-14/regression_tests.csv",
+      "bytes": 1493,
+      "sha256": "70abfc6391be3d9ebb5508d063f756b49aed5722dedf2fc34a4cc3b86d4b387c",
+      "note": "section 3, complete - all 24 probes"
+    },
+    {
+      "file": "results/2026-09-14/summary.json",
+      "bytes": 1117,
+      "sha256": "802faa793ddc032b36a0e069213fa70d32103165067eed3dbe6e419eb3e2820c",
+      "note": "section 9 of the panel notebook, as printed"
+    }
+  ]
+}

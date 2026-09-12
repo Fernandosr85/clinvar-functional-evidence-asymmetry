@@ -1,0 +1,10 @@
+# Frozen snapshots are hash-verified against results/*/run_manifest.json.
+# Any line-ending translation on checkout breaks that verification while the
+# stored blobs remain correct — the failure looks like bad provenance and is not.
+results/** -text
+
+# Notebooks are JSON with embedded output; leave them byte-exact too.
+*.ipynb -text
+
+# The 450 adjudicated labels are hashed in the manifest as well.
+labels/** -text

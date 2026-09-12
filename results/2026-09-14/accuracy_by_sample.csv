@@ -1,0 +1,9 @@
+sample,role,class,tp,fp,fn,precision,recall,f1,precision_weighted,recall_weighted,note
+heldout_90,EVALUATION,claim,34,1,0,0.971,1.0,0.986,0.9714,1.0,drawn after v3 was frozen; no pattern written from any row - quote this
+heldout_90,EVALUATION,denial,55,0,0,1.000,1.0,1.000,1.0000,1.0,drawn after v3 was frozen; no pattern written from any row - quote this
+fit_130,TRAINING,claim,18,0,1,1.0,0.947,0.973,1.0,0.9709,the v2 patterns were written from these rows
+fit_130,TRAINING,denial,33,0,2,1.0,0.943,0.971,1.0,0.9567,the v2 patterns were written from these rows
+fit_110,TRAINING,claim,45,8,5,0.849,0.900,0.874,0.9688,0.9485,"held out for v2, then four v3 patterns were written from it"
+fit_110,TRAINING,denial,47,1,8,0.979,0.855,0.913,0.9991,0.9234,"held out for v2, then four v3 patterns were written from it"
+v1_on_130,TRAINING,claim,17,13,2,0.567,0.895,0.694,,,"version 1 scored on the rows its own patterns came from, unweighted only"
+v1_on_130,TRAINING,denial,22,38,13,0.367,0.629,0.463,,,"version 1 scored on the rows its own patterns came from, unweighted only"
