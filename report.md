@@ -63,11 +63,28 @@ occurrence. Two submitters describe its functional evidence in opposite terms:
 > *"Functional evidence supports a deleterious effect on the gene or gene
 > product"* — Dasa, SCV007599104.1, January 2026
 
-The two cite overlapping PMIDs — 21387466 and 30039904 appear in both — and the
-cited works appear to be clinical reports rather than functional experiments,
-though this report does not establish that: it would require reading them. The
-question this raises is not about one variant: how often does either statement
-appear, and is the distinction between them stable?
+Two PMIDs appear in both submissions — 21387466 and 30039904 — and the methods
+of each were read for this report. Lepri et al. (*Human Mutation* 2011) is a
+mutation-scanning study: DHPLC and Sanger sequencing, parental genotyping, more
+than 300 population-matched controls, SIFT and PolyPhen, and modelling of residue
+positions onto an existing crystal structure with electrostatic-potential
+calculations. For c.1310T>C it records a confirmed de novo occurrence and a
+predicted effect, and its structural reading is hedged — the substitution
+*"might"* perturb the PH domain and *"possibly"* reorient the histone-fold
+domain. Prasad et al. (*Pediatric Blood & Cancer* 2018) is a case report of
+colorectal cancer in a child with Noonan syndrome; its methods state that
+*"pathogenicity of germline variants was determined through a review of the
+published literature and databases"*, and it cites Lepri for this variant.
+
+Neither shared citation contains an experiment on p.Ile437Thr. What they support
+is PS2, PM2 and PP3, and arguably PM1 — not PS3. So the two laboratories are not
+reading the same experiment differently: there is no experiment in the papers
+they share. They are disagreeing about whether structural modelling and
+computational prediction count as functional evidence at all. That is a statement
+about the two citations held in common and nothing more — this analysis reads
+comment text, not the full reference list behind a submission. The question it
+raises is not about one variant: how often does either statement appear, and is
+the distinction between them stable?
 
 *(Two Labcorp entities submit on this variant and they are separate submitters
 throughout this report: Women's Health and Genetics / LabCorp, quoted above, and
@@ -243,7 +260,9 @@ exclude them, and a reader who disagrees can recompute.
 
 Whether any claim is true. That requires reading the cited publications, and a
 feasibility check found that only 26% of the PMIDs behind these claims have open
-full text — a functional assay is described in Methods, not in the abstract.
+full text — a functional assay is described in Methods, not in the abstract. The
+two publications shared by the submissions quoted in section 1 were read; no
+others were.
 
 Whether an assay was performed on the variant in hand or on a neighbouring one
 at the same codon. That distinction is PS3 against PM5, and deciding it requires
