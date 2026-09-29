@@ -1,0 +1,30 @@
+lab_pair,mean,size
+3billion | ClinGen RASopathy Variant Curation Expert Panel,0.07692307692307693,13
+3billion | Dasa,0.2,5
+"Labcorp Genetics (formerly Invitae), Labcorp | Rady Children's Institute for Genomic Medicine, Rady Children's Hospital San Diego",0.0,4
+"Dasa | Labcorp Genetics (formerly Invitae), Labcorp",0.0,4
+"GeneDx | Labcorp Genetics (formerly Invitae), Labcorp",0.0,4
+ClinGen RASopathy Variant Curation Expert Panel | Dasa,0.0,3
+"3billion | Labcorp Genetics (formerly Invitae), Labcorp",0.3333333333333333,3
+"Center for Genomics, Ann and Robert H. Lurie Children's Hospital of Chicago | Labcorp Genetics (formerly Invitae), Labcorp",0.0,2
+"3billion | Genetic Services Laboratory, University of Chicago",0.5,2
+"Broad Center for Mendelian Genomics, Broad Institute of MIT and Harvard | Variantyx, Inc.",1.0,1
+"3billion | Broad Center for Mendelian Genomics, Broad Institute of MIT and Harvard",0.0,1
+"3billion | Rady Children's Institute for Genomic Medicine, Rady Children's Hospital San Diego",0.0,1
+"3billion | Variantyx, Inc.",1.0,1
+"ClinGen RASopathy Variant Curation Expert Panel | Labcorp Genetics (formerly Invitae), Labcorp",0.0,1
+"ClinGen RASopathy Variant Curation Expert Panel | Genetic Services Laboratory, University of Chicago",0.0,1
+"3billion | Women's Health and Genetics/Laboratory Corporation of America, LabCorp",1.0,1
+"ClinGen RASopathy Variant Curation Expert Panel | Variantyx, Inc.",0.0,1
+"Dasa | Genetic Services Laboratory, University of Chicago",0.0,1
+Dasa | GeneDx,0.0,1
+"GeneDx | Prenatal Diagnosis Unit, University Medical Center at Ho Chi Minh City, University of Medicine and Pharmacy at Ho Chi Minh City",1.0,1
+"Clinical Genetics and Genomics, Karolinska University Hospital | Labcorp Genetics (formerly Invitae), Labcorp",0.0,1
+"GeneDx | St. Jude Molecular Pathology, St. Jude Children's Research Hospital",1.0,1
+"GeneDx | Variantyx, Inc.",0.0,1
+"Genetic Services Laboratory, University of Chicago | Labcorp Genetics (formerly Invitae), Labcorp",1.0,1
+"GeneDx | Women's Health and Genetics/Laboratory Corporation of America, LabCorp",1.0,1
+"Genome Diagnostics Laboratory, The Hospital for Sick Children | Labcorp Genetics (formerly Invitae), Labcorp",1.0,1
+"Institute for Genomic Medicine (IGM) Clinical Laboratory, Nationwide Children's Hospital | Labcorp Genetics (formerly Invitae), Labcorp",0.0,1
+"Institute for Genomic Medicine (IGM) Clinical Laboratory, Nationwide Children's Hospital | Women's Health and Genetics/Laboratory Corporation of America, LabCorp",1.0,1
+"Labcorp Genetics (formerly Invitae), Labcorp | Variantyx, Inc.",0.0,1

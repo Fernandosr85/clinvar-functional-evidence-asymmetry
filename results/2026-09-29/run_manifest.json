@@ -1,0 +1,85 @@
+{
+  "snapshot": "2026-09-29",
+  "clinvar_release": "submission_summary.txt.gz as fetched for the run of 26-29 September 2026: 395,073,375 bytes, 6,738,642 rows scanned",
+  "notebook_run": "26-29 September 2026",
+  "produced_by": "notebooks/one_paper_two_readings.ipynb",
+  "derivation": "No table here was recomputed for publication. Each file is the CSV the stored run wrote, copied from the notebook's Kaggle output.",
+  "relationship_to_2026_09_14": "A different weekly ClinVar release. That snapshot reports 32,569 submissions, 1,216 claims and 1,512 denials; this one reports 32,562, 1,218 and 1,513. Neither supersedes the other and the direction is the same in both. The 44 variants named in the 2026-09-11 report and the 39 named here are NOT the same quantity recomputed: the code that produced the 44 is not in this repository and its definition of 'absence statement' cannot be recovered, so the two numbers are not comparable.",
+  "headline_counts": {
+    "submissions": 32562,
+    "variants": 17369,
+    "genes": 13,
+    "flag_basis": {
+      "claims": 1218,
+      "denials": 1513,
+      "ratio": 0.805
+    },
+    "disjoint_basis": {
+      "claim_only": 1200,
+      "denial_only": 1495,
+      "both": 18,
+      "neither": 29849,
+      "ratio": 0.803
+    },
+    "basis_note": "Every count here states which basis it uses. The two differ by the 18 submissions that both assert and deny."
+  },
+  "not_included": {
+    "submission_summary.txt.gz": "395 MB of ClinVar, and gitignored. Re-fetchable, but a copy fetched later is a different snapshot."
+  },
+  "files": [
+    {
+      "file": "results/2026-09-29/A_dropped_rows_classified.csv",
+      "bytes": 1230348,
+      "sha256": "66eed504439eba5574cdb094ee9a32f9602bccc350262b86892eea51ab2f54b4",
+      "note": "section 6, defect A - the 4,007 submissions on panel variants dropped by the gene-field filter, across 2,737 variants"
+    },
+    {
+      "file": "results/2026-09-29/B_splitter_flips.csv",
+      "bytes": 70,
+      "sha256": "e858bfe40f743ccbe3042d5da64cbd201734991fde624e2bc1d45097e280a1c6",
+      "note": "section 6, defect B - empty by design: no submission changes flags under a bullet-aware splitter"
+    },
+    {
+      "file": "results/2026-09-29/C_candidate_false_claims.csv",
+      "bytes": 26072,
+      "sha256": "0afe69aef31098f6a785c4c48da890bd6eabee1fb84974785f7b116d5606d272",
+      "note": "section 6, defect C - the 100 tier-2 candidates, 17 of them tier-1. READ THIS before quoting either number; the report says the honest figure is nearer 3-5"
+    },
+    {
+      "file": "results/2026-09-29/D_candidate_missed_denials.csv",
+      "bytes": 38,
+      "sha256": "5ee932fd0dddb985b0a9a55f646162735ee9312a4cd80112a3a6e3f6bec5e7f8",
+      "note": "section 6, defect D - empty by design: no unflagged submission matches the missed-denial phrasing"
+    },
+    {
+      "file": "results/2026-09-29/bibliography_pairs.csv",
+      "bytes": 13256,
+      "sha256": "86e7a5890e8e7b65ddcaca08bfc9b1cf26192eb7054943c67daed30329d7205d",
+      "note": "section 1 - the 60 variant-level pairs with Jaccard >= 0.80, both sides citing >= 3 PMIDs"
+    },
+    {
+      "file": "results/2026-09-29/citations_by_sentence.csv",
+      "bytes": 1326412,
+      "sha256": "699841e0dafe136f3b61bc0d2ae9dc12402d8dd8a79025c81282b6beaf0de103",
+      "note": "section 4 - one row per (submission, PMID, sentence role); 18,093 rows, of which 963 claim and 2 denial"
+    },
+    {
+      "file": "results/2026-09-29/classified.csv.gz",
+      "bytes": 2839111,
+      "sha256": "ba33f4eaa9c52f80d4c96b04926dc51578c17a6a237d20386102268ac3c8334b",
+      "note": "the per-submission table the run wrote, gzipped. 32,562 rows. Every headline count in the report is recomputable from this file alone"
+    },
+    {
+      "file": "results/2026-09-29/divergence_by_submitter_pair.csv",
+      "bytes": 2589,
+      "sha256": "690d4d7758f7629081219cf53b39812656daf004f4b8766ab87d605594d1bbca",
+      "note": "section 1 - the 29 distinct submitter pairs behind those 60"
+    },
+    {
+      "file": "results/2026-09-29/paper_variant_readings.csv",
+      "bytes": 63590,
+      "sha256": "49c6bfabe0a873603cbfcee29c5a6913cd19d77dbfe34e1030e8dd874ed53e59",
+      "note": "section 4 - the 2,023 (variant, paper) cells cited by >= 2 submitters, with the strict and loose flags (0 and 8)"
+    }
+  ]
+}

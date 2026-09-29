@@ -1,19 +1,39 @@
 # Functional-evidence statements in ClinVar
 
 **How often do laboratories say a functional experiment exists — and how often do they say one
-is missing?** A count across 32,569 ClinVar submissions for a 13-gene RASopathy panel, and an
-account of what the count could not settle.
+is missing?** A count across a 13-gene RASopathy panel, and an account of what the count could
+not settle.
 
-The full write-up is [`report.md`](report.md). This README says what is in the repository, how to
-verify it, and — the part that matters most — how a curator can take part.
+Two rounds, on two weekly ClinVar releases, published side by side:
+
+| Round | Report | Snapshot | Asks |
+|---|---|---|---|
+| 1 | [Functional-evidence statements in ClinVar](reports/2026-09-11-panel-classification.md) | 11 Sep 2026, 32,569 submissions | How often is each statement made, and is the category stable enough to count? |
+| 2 | [How functional evidence is recorded in ClinVar](reports/2026-09-29-one-paper-two-readings.md) | 26–29 Sep 2026, 32,562 submissions | Which sentence carries each citation, can a bibliography-controlled comparison be made at all, and does the pipeline's own defects change the answer? |
+
+They read different releases and do not report identical counts. Neither supersedes the other.
+
+> **Convention: every count declares its basis.** The two that recur here are the **flag counts**
+> (1,218 claims / 1,513 denials — a submission is counted on both sides when its text does both)
+> and the **disjoint strata** (1,200 claim-only / 1,495 denial-only / 18 both / 29,849 neither).
+> The same thing happens in ClinVar itself: VCV000045345 carries 18 submissions (15 Pathogenic,
+> 3 Likely pathogenic), of which 17 contribute to the aggregate classification, while the
+> text-mining pipeline sees 16. None of those numbers contradicts the others; each answers a
+> different question. Getting this wrong was one of the errors the review round caught.
+
+This README says what is in the repository, how to verify it, and — the part that matters most —
+how a curator can take part.
 
 ---
 
 ## The finding, in four lines
 
-- Statements that functional evidence **exists** and statements that it is **absent** occur at
-  about the same rate: **1,216 against 1,512**. That aggregate is close to meaningless, because a
-  single submitter files 62% of the absence statements.
+- Both statements are rare, and absence is the commoner of the two. On the second round:
+  **3.7% and 4.6% of all submissions**; over the submissions that carry a comment — a third of the
+  corpus carries none — the claim rate is **5.5%**. Denials outnumber claims by about a quarter
+  (**1,513 against 1,218**, flag basis; 1,512 against 1,216 on the first round's release). The
+  aggregate is close to meaningless on its own, because a single submitter files 62% of the
+  absence statements.
 - Per laboratory it is not symmetric. Of the **26** laboratories that file at least 30
   submissions and make at least one claim about functional evidence, **19 never once record an
   absence**. The median laboratory files zero absence statements per claim.
@@ -174,10 +194,16 @@ reading of record, so that it lives in the notebook and anyone can re-check it l
 ## What is in this repository
 
 ```
-report.md                                  the full write-up
+report.md                                  pointer to the two reports
+reports/
+  2026-09-11-panel-classification.md       round 1, the full write-up
+  2026-09-29-one-paper-two-readings.md     round 2, the full write-up
 notebooks/
   panel_classification.ipynb               classifies 32,569 submissions — the executed run
   blind_interrater_check.ipynb             the 50-submission blind read — the executed run
+  one_paper_two_readings.ipynb             round 2 — the executed run, outputs stored
+cells/
+  01..07_*.py                              round 2's code cells, standalone and read-only
 labels/
   panel_claims_audit_sample130_rev.csv     130 adjudicated submissions   TRAINING
   panel_claims_v2_heldout_110_rev.csv      110 adjudicated submissions   TRAINING
@@ -185,7 +211,8 @@ labels/
   panel_claims_v4_negatives_60.csv          60 negative-class sample     SPENT
   panel_claims_v5_negatives_60.csv          60 negative-class sample     SPENT
   blind_comparison.csv                      50 rows, three readings side by side
-results/2026-09-14/                        the frozen snapshot, plus run_manifest.json
+results/2026-09-14/                        round 1's frozen snapshot, plus run_manifest.json
+results/2026-09-29/                        round 2's, including classified.csv.gz
 ```
 
 Each label file carries the classifier's output, the adjudicated verdict, and a free-text reason
@@ -258,10 +285,15 @@ Being straight about the boundary is cheaper than being caught at it.
   was not retained. Every row of Table 2 in the report is inside those 20, so the report is
   checkable against it; a reader who wants the other 258 has to re-run the notebook and will get a
   later ClinVar snapshot.
-- **The per-submission table is not here.** `classified.csv` is 32,569 rows and was not retained
-  either. Figures computed straight from it — the 44 variants carrying both a claim and an absence
-  statement from different submitters, and the 2,523-row and/or block — cannot be verified from
-  this repository alone.
+- **The per-submission table is not here** — for this snapshot. `classified.csv` is 32,569 rows and
+  was not retained. Figures computed straight from it — the 44 variants carrying both a claim and an
+  absence statement from different submitters, and the 2,523-row and/or block — cannot be verified
+  from this repository alone. *The second round's equivalent table **is** published, as
+  [`results/2026-09-29/classified.csv.gz`](results/2026-09-29) (32,562 rows), so every headline
+  count in that report is recomputable. It is a different ClinVar release and does not retroactively
+  verify anything above. In particular the 44 above and the 39 in the second round are **not** the
+  same quantity recomputed: the code that produced the 44 is not in this repository, its definition
+  of "absence statement" cannot be recovered, and the two must not be read as comparable.*
 - **Nothing here establishes that any claim is true.** That needs the cited publications read, and
   a feasibility check found only 26% of the PMIDs behind these claims have open full text.
 
@@ -291,11 +323,63 @@ prose.
 
 ---
 
+## What the second round establishes, and what it does not
+
+**Establishes**
+
+- Denials outnumber claims across the panel, and the direction survives every measured defect in
+  the pipeline. The largest single effect moves the ratio from 0.805 to 0.865.
+- A claim cites literature **4.6× more often** than a denial, and the gap survives inside four of
+  the five laboratories that write both kinds of statement.
+- ClinVar stores references in **two channels** — the free-text comment and a structured citation
+  field — and a third form, author-year references, is unparseable by text mining. Any analysis of
+  `submission_summary.txt` undercounts citations, and undercounts them *asymmetrically by
+  submitter*: Ambry Genetics shows a 0.0% citation rate here and is not silent at all.
+- A bibliography-controlled comparison is possible on this panel but rests on **29 laboratory
+  pairs**. It is a case series. No threshold in the sensitivity sweep makes it a rate.
+
+**Does not establish**
+
+- **No rate of disagreement.** Every percentage here is over templates, not over independent
+  judgements, and the pairs may share upstream bibliographies.
+- **The two confirmed cases are one submitter pair.** Dasa asserting and LabCorp (Women's Health
+  and Genetics) denying, on SOS1 p.Ile437Thr and again on PTPN11 p.Ala72Gly — one pair observed
+  twice, not two independent observations. Two house templates that disagree would produce exactly
+  this, and nothing here distinguishes that from anything wider.
+- **The 39 variants that could distinguish them have not been read by anyone.** They are a
+  mechanical count across 24 submitter pairs, carrying the same channel limitation, and the largest
+  of those pairs is invisible to this pipeline. They are published here as
+  `results/2026-09-29/` inputs, unread.
+- **Nothing about correctness.** No laboratory's reading of the literature is evaluated. The
+  internal criteria each applies to the phrase "functional evidence" are not published, and a
+  laboratory may legitimately use it more broadly than ACMG/AMP uses PS3.
+
+The strongest result is partly negative: the question cannot currently be answered as a rate from
+ClinVar, and the reason is structural rather than a shortfall of effort.
+
+### How the second round was reviewed
+
+The analysis was reviewed twice by **AI coding assistants from two model families — Claude Code and
+OpenAI Codex** — run separately, each asked to re-execute the pipeline and open the cited sources.
+The report then went through a third round against its own stored outputs. Every error those rounds
+found is recorded in the report itself rather than summarised away. Neither reviewer is a clinical
+geneticist, and none of this substitutes for the VCEP's own reading of the literature.
+
+---
+
 ## Running the classifier notebook
 
 `notebooks/panel_classification.ipynb` is self-contained. Run from the repository root it finds
 the label files in `labels/` by itself, downloads ClinVar's `submission_summary.txt.gz` (388 MB)
 if it is not already present, and writes its tables into `panel_claims_v2/`.
+
+`notebooks/one_paper_two_readings.ipynb` is the second round. It bootstraps the classifier notebook
+above and re-runs its first four cells, so the label basis is identical to the published figures
+rather than a second implementation of them; it needs that notebook attached as an input and
+internet enabled. It is also live at
+[kaggle.com/code/fernandosr85/one-paper-two-readings](https://www.kaggle.com/code/fernandosr85/one-paper-two-readings).
+Its cells are published individually under [`cells/`](cells) — they are read-only extracts and do
+not run standalone.
 
 That download is deliberately untracked. A copy fetched today is a different snapshot from the one
 behind `results/2026-09-14/`, and passing one off as the other is the provenance failure this
