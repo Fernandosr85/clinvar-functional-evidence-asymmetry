@@ -8,3 +8,8 @@ results/** -text
 
 # The 450 adjudicated labels are hashed in the manifest as well.
 labels/** -text
+
+# The extracted cells carry the SHA-256 of their own body in the header, computed
+# on the LF form. Same reasoning as results/: translating line endings on checkout
+# would break that check while the stored blob stays correct.
+cells/** -text
